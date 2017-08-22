@@ -1,10 +1,12 @@
-#Twitch Online
+# Twitch Online
 
-**Twitch Online** is a Python 3 command line tool that tells you which streamers are online for a particular follower.
+**Twitch Online** is a simple Python 3 command line tool that tells you which streamers are online and what they're playing for a particular follower.
 
 ## Requirements
 
-In order to run this script you will need to get a Twitch Client id and paste it into the file `twitch_client_id.txt`
+In order to run this script you will need to get a Twitch client ID and paste it into the file `twitch_client_id.txt`
+
+To get a client ID, [register a developer application](https://www.twitch.tv/kraken/oauth2/clients/new) on the connections page of your Twitch account.
 
 ## Usage
 `python3 twitch_online.py <Twitch_Username>`
