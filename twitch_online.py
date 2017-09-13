@@ -13,7 +13,7 @@ user = sys.argv[1]
 file = open("twitch_client_id.txt", 'r')
 client_id = file.readline().strip()
 base_url = "https://api.twitch.tv/kraken/"
-follows_url = base_url + "users/" + user + "/follows/channels?sortby=last_broadcast"
+follows_url = base_url + "users/" + user + "/follows/channels"
 follows_request = urllib.request.Request(follows_url)
 follows_request.add_header("Client-ID", client_id)
 
@@ -66,7 +66,7 @@ def is_live(data):
         logo = data['streams'][i]['channel']['logo']
         live_streamers.append(Streamer(name, game, viewers, logo))
 
-    live_streamers.reverse()
+    live_streamers.sort(key=lambda streamer: int(streamer.viewers), reverse=True)
     return live_streamers
 
 
