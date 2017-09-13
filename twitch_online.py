@@ -71,16 +71,17 @@ def is_live(data):
 
 
 # Make a new json query
-follows_data = make_query(follows_request)
-followed_streamers = get_following()
+try:
+    follows_data = make_query(follows_request)
+    followed_streamers = get_following()
 
-streams_url = base_url + "streams?channel=" + ",".join(followed_streamers)
-streams_request = urllib.request.Request(streams_url)
-streams_request.add_header("Client-ID", client_id)
-streams_data = make_query(streams_request)
+    streams_url = base_url + "streams?channel=" + ",".join(followed_streamers)
+    streams_request = urllib.request.Request(streams_url)
+    streams_request.add_header("Client-ID", client_id)
+    streams_data = make_query(streams_request)
 
-print("These are the live streamers that " + Colors.PURPLE + user + Colors.ENDCOLOR + " is following:")
-for streamer in is_live(streams_data):
-    streamer.print_info()
-
-# TODO: add check to see if user exists and have 'nobody online' message if no streamers are online
+    print("These are the live streamers that " + Colors.PURPLE + user + Colors.ENDCOLOR + " is following:")
+    for streamer in is_live(streams_data):
+        streamer.print_info()
+except:
+    print(Colors.RED + "User %s does not exist. Please check the name and try again." % (user))
