@@ -36,8 +36,8 @@ class Streamer(object):
         self.logo = logo
 
     def print_info(self):
-        print(
-            Colors.BLUE + self.name + Colors.ENDCOLOR + " is streaming " + Colors.UNDERLINE + self.game + Colors.ENDCOLOR + " for " + Colors.RED + self.viewers + Colors.ENDCOLOR + " viewers")
+        print(Colors.BLUE + self.name + Colors.ENDCOLOR + " is streaming " + Colors.UNDERLINE + self.game +
+              Colors.ENDCOLOR + " for " + Colors.RED + self.viewers + Colors.ENDCOLOR + " viewers")
 
 
 # Create a json query
